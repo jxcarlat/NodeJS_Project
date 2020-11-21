@@ -1,6 +1,9 @@
 const express = require('express');
 const morgan = require('morgan');
-const campsiteRouter = require('./routes/campsiteRouter');
+const userRouter = require('./routes/userRouter');
+const videoRouter = require('./routes/videoRouter');
+const postRouter = require('./routes/postRouter');
+const commentRouter = require('./routes/commentRouter');
 
 const hostname = 'localhost';
 const port = 3000;
@@ -9,7 +12,10 @@ const app = express();
 app.use(morgan('dev'));
 app.use(express.json());
 
-app.use('/campsites', campsiteRouter);
+app.use('/users', userRouter);
+app.use('/videos', videoRouter);
+app.use('/posts', postRouter);
+app.use('/comments', commentRouter);
 
 app.use(express.static(__dirname + '/public'));
 
